@@ -5,7 +5,7 @@ import { theme } from '@/theme';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 50,
+        padding: 28,
     },
     title:{
         fontSize: theme.fonts.size.heading.xl,
@@ -24,5 +24,11 @@ export const styles = StyleSheet.create({
         marginTop:12,
         marginBottom:38,
 
+    },
+    ingredients:{
+        flexWrap:"wrap",
+        flexDirection: "row",
+        paddingBottom: 200, 
+        gap:12
     },
 })

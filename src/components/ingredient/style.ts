@@ -17,5 +17,10 @@ export const styles = StyleSheet.create({
     image: {
         height:16,
         width:16,
+    },
+    selected:{
+        borderWidth: 2, 
+        borderColor:theme.colors.green_600,
+        backgroundColor: theme.colors.green_100,
     }
 })

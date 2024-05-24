@@ -21,6 +21,9 @@ export const styles = StyleSheet.create({
         color: theme.colors.white,
         fontSize: theme.fonts.size.body.sm,
         fontFamily: theme.fonts.family.regular
+    }, image:{
+        width: 20, 
+        height: 20
     }
 })
 

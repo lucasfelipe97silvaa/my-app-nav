@@ -1,7 +1,8 @@
-import { View, Text, ScrollView} from "react-native";
+import { View, Text, ScrollView, Alert} from "react-native";
 import { styles } from "./styles";
 import { Ingredient } from "@/components/ingredient";
 import { useState } from "react";
+import { Selected } from "@/components/selected";
 
 export default function home(){
     const [selected, setSelected] = useState<string[]>([]);
@@ -15,7 +16,17 @@ export default function home(){
         setSelected((state) => [...state, value])
         console.log(selected);
     }
+
+    function hendlerClearSelected(){
+        Alert.alert("Limpar", "Deseja limpar tudo?",[
+            {text: "não", style:"cancel"}, {text:"sim", onPress: () => setSelected([])}
+        ])
+        
+    } 
+    
+
     return(
+        
         <View  style={styles.container}>
             <Text style={styles.title}>
                 Escolha {"\n"}
@@ -35,6 +46,10 @@ export default function home(){
                     /> 
                 ))}
             </ScrollView>
+            { selected.length > 0 && 
+                <Selected quantity={selected.length} onClean={hendlerClearSelected} onSearch={() => {}}/>
+
+            }
         </View>
     )
 }

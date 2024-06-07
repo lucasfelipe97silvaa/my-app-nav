@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Selected } from "@/components/selected";
 
 import { services } from "@/services";
+import { router } from "expo-router";
 
 export default function home(){
     const [selected, setSelected] = useState<string[]>([]);
@@ -27,8 +28,14 @@ export default function home(){
         
     } 
     
+    function handlerSearch(){
+        router.navigate("/recipes/" + selected)
+    }
+
     useEffect(() =>{
         services.ingredients.findAll().then(setIngredient)
+        console.log(ingredient)
+
     },[])
 
     return(
@@ -50,7 +57,7 @@ export default function home(){
                 ))}
             </ScrollView>
             { selected.length > 0 && 
-                <Selected quantity={selected.length} onClean={hendlerClearSelected} onSearch={() => {}}/>
+                <Selected quantity={selected.length} onClean={hendlerClearSelected} onSearch={ handlerSearch}/>
 
             }
         </View>
